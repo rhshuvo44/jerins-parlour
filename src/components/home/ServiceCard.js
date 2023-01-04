@@ -3,7 +3,7 @@ import React from "react";
 const ServiceCard = ({ service }) => {
   const { title, icon, price, info } = service;
   return (
-    <div className="card   hover:shadow-xl">
+    <div className="card hover:shadow-xl">
       <figure className="px-10 pt-10">
         <img src={icon} alt={title} title={title} className="rounded-xl" />
       </figure>
