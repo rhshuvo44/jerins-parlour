@@ -1,0 +1,26 @@
+.menu a {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 9px;
+  letter-spacing: 0.396px;
+  color: #474747;
+}
+
+.active {
+  background: transparent;
+  color: #f63e7b !important;
+}
+.primary-button {
+  background: #f73e7b;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  padding: 15px 30px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 9px;
+  letter-spacing: 0.396px;
+  color: #fff !important;
+  text-align: center;
+}
