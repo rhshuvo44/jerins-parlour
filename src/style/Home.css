@@ -24,3 +24,41 @@
   line-height: 43px;
   letter-spacing: 0.396px;
 }
+.testimonial h2 {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 50px;
+  text-align: center;
+  letter-spacing: 0.0015em;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-top-text h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000;
+}
+.card-top-text h4 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000;
+}

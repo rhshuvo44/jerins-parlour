@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import { publicRoutes } from "./routes/publicRoutes";
-
+import "swiper/css";
+import "swiper/css/pagination";
 function App() {
   return (
     <Navbar>
