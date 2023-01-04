@@ -5,11 +5,11 @@ import "../style/Navbar.css";
 
 const Navbar = ({ children }) => {
   return (
-    <div className="drawer drawer-end md:px-20">
+    <div className="drawer drawer-end ">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* <!-- Navbar --> */}
-        <div className="w-full navbar">
+        <div className="w-full navbar md:px-20 fixed top-0 z-10 bg-[#E5E5E5]">
           <div className="flex-1 px-2 mx-2">
             <Link to="/">
               <img className="w-32 h-12" src={logo} alt="" />
