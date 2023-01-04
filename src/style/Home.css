@@ -1,10 +1,20 @@
-.banner h2{
-    font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-line-height: 60px;
-/* identical to box height, or 125% */
-
-letter-spacing: 0.01em;
+.text {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.396px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.banner h2 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: 0.01em;
+}
+.service h2 {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 43px;
+  text-align: center;
+  letter-spacing: 0.396px;
 }
