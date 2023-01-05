@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import PrimaryButton from "../../components/shared/PrimaryButton";
 import "../../style/Login.css";
@@ -16,7 +16,9 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const { register, handleSubmit } = useForm();
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
   if (error || gError) {
     return (
       <div>
@@ -28,11 +30,7 @@ const Login = () => {
     return <Loading />;
   }
   if (user || gUser) {
-    return (
-      <div>
-        <p>Signed In User: {user.email}</p>
-      </div>
-    );
+    return navigate(from, { replace: true });
   }
   const onSubmit = (data) => {
     console.log(data);

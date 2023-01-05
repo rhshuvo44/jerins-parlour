@@ -1,9 +1,20 @@
 import React from "react";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 import logo from "../assets/logo.png";
+import auth from "../firebase.init";
 import "../style/Navbar.css";
 
 const Navbar = ({ children }) => {
+  const [user] = useAuthState(auth);
+  const [signOut] = useSignOut(auth);
+  const logOut = async () => {
+    const success = await signOut();
+    if (success) {
+      toast.success("You are sign out");
+    }
+  };
   return (
     <div className="drawer drawer-end ">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -44,6 +55,16 @@ const Navbar = ({ children }) => {
                   Home
                 </NavLink>
               </li>
+              {user && (
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className=" capitalize hover:bg-transparent hover:text-primary"
+                  >
+                    dashboard
+                  </NavLink>
+                </li>
+              )}
               <li>
                 <NavLink
                   to="/portfolio"
@@ -69,9 +90,15 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/login" className="primary-button">
-                  Login
-                </NavLink>
+                {user ? (
+                  <button onClick={logOut} className="primary-button">
+                    Logout
+                  </button>
+                ) : (
+                  <NavLink to="/login" className="primary-button">
+                    Login
+                  </NavLink>
+                )}
               </li>
             </ul>
           </div>
@@ -89,6 +116,14 @@ const Navbar = ({ children }) => {
               className=" capitalize hover:bg-transparent hover:text-primary"
             >
               Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashboard"
+              className=" capitalize hover:bg-transparent hover:text-primary"
+            >
+              dashboard
             </NavLink>
           </li>
           <li>
