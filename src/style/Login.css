@@ -28,6 +28,7 @@
 .google-login .text {
   transform: translateX(35px);
   font-weight: bold;
+  transition: all 0.5s;
 }
 
 .google-login .icon {
@@ -36,6 +37,8 @@
   height: 60px;
   width: 60px;
   display: flex;
+  transition: all 0.5s;
+
   align-items: center;
   justify-content: center;
 }
@@ -58,9 +61,6 @@
   outline: none;
 }
 
-.google-login:active .icon svg {
-  transform: scale(0.8);
-}
 .form {
   position: relative;
 }

@@ -5,9 +5,30 @@ import logo from "../../assets/logo.png";
 import PrimaryButton from "../../components/shared/PrimaryButton";
 import "../../style/Login.css";
 import { FcGoogle } from "react-icons/fc";
-
+import auth from "../../firebase.init";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import Loading from "../../components/shared/Loading";
 const Login = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const { register, handleSubmit } = useForm();
+
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading) {
+    return <Loading />;
+  }
+  if (user) {
+    return (
+      <div>
+        <p>Signed In User: {user.email}</p>
+      </div>
+    );
+  }
   const onSubmit = (data) => console.log(data);
   return (
     <div className="login flex justify-center justify-items-center p-20">
@@ -30,12 +51,14 @@ const Login = () => {
               className="input input-bordered p-5 my-5 w-full "
               {...register("password")}
             />
-            <PrimaryButton type="submit">Login</PrimaryButton>
+            <div className="flex">
+              <PrimaryButton type="submit">Login</PrimaryButton>
+            </div>
           </form>
           <div className="divider">OR</div>
           <h2 className="card-title capitalize">Login with</h2>
           <div className="py-5">
-            <button class="google-login">
+            <button class="google-login" onClick={() => signInWithGoogle()}>
               <span class="text">Continue with Google</span>
               <span class="icon">
                 <FcGoogle size={30} />
