@@ -1,3 +1,4 @@
+/* common  */
 .text {
   font-weight: 300;
   font-size: 16px;
@@ -5,12 +6,14 @@
   letter-spacing: 0.396px;
   color: rgba(0, 0, 0, 0.7);
 }
+/* banner  */
 .banner h2 {
   font-weight: 700;
   font-size: 48px;
   line-height: 60px;
   letter-spacing: 0.01em;
 }
+/* service  */
 .service h2 {
   font-weight: 700;
   font-size: 34px;
@@ -24,6 +27,7 @@
   line-height: 43px;
   letter-spacing: 0.396px;
 }
+/* testimonial  */
 .testimonial h2 {
   font-weight: 700;
   font-size: 34px;
@@ -64,6 +68,7 @@
   text-transform: capitalize;
   color: #000;
 }
+/* contact  */
 .contact h2 {
   font-weight: 700;
   font-size: 34px;

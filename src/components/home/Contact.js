@@ -9,7 +9,7 @@ const Contact = () => {
     <div className="contact bg-[#E5E5E5]">
       <div className="card w-full md:w-1/2 mx-auto py-20">
         <div className="card-body items-center text-center">
-          <h2 className="card-title px-20">
+          <h2 className="card-title px-0 md:px-20">
             Let us handle your project, professionally.
           </h2>
           <form onSubmit={handleSubmit(onSubmit)} className="mt-10">

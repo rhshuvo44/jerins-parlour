@@ -3,6 +3,7 @@ import Navbar from "./layout/Navbar";
 import { publicRoutes } from "./routes/publicRoutes";
 import "swiper/css";
 import "swiper/css/pagination";
+import Footer from "./layout/Footer";
 function App() {
   return (
     <Navbar>
@@ -10,12 +11,8 @@ function App() {
         {publicRoutes.map(({ path, Component }, index) => (
           <Route key={index} path={path} element={<Component />} />
         ))}
-        {/* <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<Contact />} />
-        <Route path="/modal" element={<Modal />} />
-        <Route path="/allService" element={<AllServices />} /> */}
       </Routes>
+      <Footer />
     </Navbar>
   );
 }
