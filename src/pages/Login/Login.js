@@ -6,30 +6,40 @@ import PrimaryButton from "../../components/shared/PrimaryButton";
 import "../../style/Login.css";
 import { FcGoogle } from "react-icons/fc";
 import auth from "../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import Loading from "../../components/shared/Loading";
 const Login = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const { register, handleSubmit } = useForm();
 
-  if (error) {
+  if (error || gError) {
     return (
       <div>
         <p>Error: {error.message}</p>
       </div>
     );
   }
-  if (loading) {
+  if (loading || gLoading) {
     return <Loading />;
   }
-  if (user) {
+  if (user || gUser) {
     return (
       <div>
         <p>Signed In User: {user.email}</p>
       </div>
     );
   }
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    const email = data.email;
+    const password = data.password;
+    signInWithEmailAndPassword(email, password);
+  };
   return (
     <div className="login flex justify-center justify-items-center p-20">
       <div className="card mt-20 bg-base-100 shadow-xl">
