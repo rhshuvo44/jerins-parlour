@@ -61,3 +61,39 @@
 .google-login:active .icon svg {
   transform: scale(0.8);
 }
+.form {
+  position: relative;
+}
+/* ------------------ */
+.signup-form .input {
+  color: #f63e7b;
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #f63e7b;
+}
+/* styling of animated border */
+.signup-form .input-border {
+  position: absolute;
+  background: #5891ff;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s;
+}
+/* Hover on Input */
+.signup-form input:hover {
+  background: #4985e01f;
+}
+.signup-form input:focus {
+  outline: none;
+}
+.signup-form input:focus ~ .input-border {
+  width: 100%;
+}

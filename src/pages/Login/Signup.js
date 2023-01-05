@@ -1,7 +1,91 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
+import PrimaryButton from "../../components/shared/PrimaryButton";
 
 const Signup = () => {
-  return <div>signup</div>;
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
+  return (
+    <div className="login w-2/4 mx-auto flex flex-col justify-center justify-items-center p-20">
+      <div className="card mt-20 bg-base-100 shadow-xl">
+        <div className="card-body">
+          <h2 className="card-title">Create an account</h2>
+          <form onSubmit={handleSubmit(onSubmit)} className="mt-10 signup-form">
+            <div class="form w-full mb-5">
+              <input
+                class="input w-full p-5"
+                placeholder="First Name"
+                required
+                type="text"
+                {...register("firstName")}
+              />
+              <span class="input-border"></span>
+            </div>
+            <div class="form w-full mb-5">
+              <input
+                class="input w-full p-5"
+                placeholder="Last Name"
+                required
+                type="text"
+                {...register("lastName")}
+              />
+              <span class="input-border"></span>
+            </div>
+            <div class="form w-full mb-5">
+              <input
+                class="input w-full p-5"
+                placeholder="Email"
+                required
+                type="email"
+                {...register("email")}
+              />
+              <span class="input-border"></span>
+            </div>
+            <div class="form w-full mb-5">
+              <input
+                class="input w-full p-5"
+                placeholder="Password"
+                required
+                type="text"
+                {...register("password")}
+              />
+              <span class="input-border"></span>
+            </div>
+            <div class="form w-full mb-5">
+              <input
+                class="input w-full p-5"
+                placeholder="Confrim Passowrd"
+                required
+                type="password"
+                {...register("confrimPassowrd")}
+              />
+              <span class="input-border"></span>
+            </div>
+            <div className="flex justify-center">
+              <PrimaryButton type="submit">Create an account</PrimaryButton>
+            </div>
+          </form>
+          <p className="text-center mt-5">
+            Already have an account?
+            <Link to="/login" className="text-primary">
+              Login
+            </Link>{" "}
+          </p>
+        </div>
+      </div>
+      <div className="divider">OR</div>
+      <div className="py-5 relative flex justify-center">
+        <button class="google-login">
+          <span class="text">Continue with Google</span>
+          <span class="icon">
+            <FcGoogle size={30} />
+          </span>
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default Signup;
