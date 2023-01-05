@@ -1,12 +1,45 @@
 import React from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import Loading from "../../components/shared/Loading";
 import PrimaryButton from "../../components/shared/PrimaryButton";
+import auth from "../../firebase.init";
 
 const Signup = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  if (error || gError) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+      </div>
+    );
+  }
+  if (loading || gLoading) {
+    return <Loading />;
+  }
+  if (user || gUser) {
+    return (
+      <div>
+        <p>Signed In User: {user.email}</p>
+      </div>
+    );
+  }
+  const onSubmit = (data) => {
+    console.log(data);
+    const email = data.email;
+    const password = data.password;
+    createUserWithEmailAndPassword(email, password);
+  };
   return (
     <div className="login w-2/4 mx-auto flex flex-col justify-center justify-items-center p-20">
       <div className="card mt-20 bg-base-100 shadow-xl">
@@ -77,7 +110,7 @@ const Signup = () => {
       </div>
       <div className="divider">OR</div>
       <div className="py-5 relative flex justify-center">
-        <button class="google-login">
+        <button class="google-login" onClick={() => signInWithGoogle()}>
           <span class="text">Continue with Google</span>
           <span class="icon">
             <FcGoogle size={30} />
