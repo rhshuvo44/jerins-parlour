@@ -55,10 +55,19 @@
   font-size: 20px;
   line-height: 30px;
   color: #000;
+  text-transform: capitalize;
 }
 .card-top-text h4 {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  text-transform: capitalize;
   color: #000;
+}
+.contact h2 {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 43px;
+  text-align: center;
+  letter-spacing: 0.396px;
 }

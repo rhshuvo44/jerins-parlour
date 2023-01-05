@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../../components/home/Banner";
+import Contact from "../../components/home/Contact";
 import Screen from "../../components/home/Screen";
 import Service from "../../components/home/Service";
 import Testimonial from "../../components/home/Testimonial";
@@ -11,7 +12,8 @@ const Home = () => {
       <Banner />
       <Service />
       <Screen />
-      <Testimonial/>
+      <Testimonial />
+      <Contact />
     </div>
   );
 };

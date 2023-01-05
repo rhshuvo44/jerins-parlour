@@ -48,8 +48,10 @@ const Testimonial = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus
                 commodo ipsum duis laoreet maecenas. Feugiat
               </p>
-              <div>
-                <AiFillStar size={24} color="#FFAC0C" />
+              <div className="flex">
+                {[...new Array(5)].map((arr, index) => (
+                  <AiFillStar size={24} color="#FFAC0C" />
+                ))}
               </div>
             </div>
           </div>
@@ -126,7 +128,6 @@ const Testimonial = () => {
             </div>
           </div>
         </SwiperSlide>
-        
       </Swiper>
     </div>
   );
