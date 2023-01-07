@@ -4,8 +4,13 @@ import "react-toastify/dist/ReactToastify.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import RequireAuth from "./authentication/RequireAuth";
+import RequiredAdmin from "./authentication/RequiredAdmin";
 import Navbar from "./layout/Navbar";
 import Dashboard from "./pages/dashboard/Dashboard";
+import MyProfile from "./pages/dashboard/MyProfile";
+import { dashboardAdminRoutes } from "./routes/dashboardAdminRoutes";
+import { dashboardUserRoutes } from "./routes/dashboardUserRoutes";
+import { privateRoutes } from "./routes/privateRoutes";
 import { publicRoutes } from "./routes/publicRoutes";
 function App() {
   return (
@@ -16,8 +21,32 @@ function App() {
           <Route key={index} path={path} element={<Component />} />
         ))}
 
+        {/* private routes  */}
         <Route element={<RequireAuth />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          {privateRoutes.map(({ path, Component }, index) => (
+            <Route key={index} path={path} element={<Component />} />
+          ))}
+
+          {/* dashboard  */}
+          {/* all user  */}
+
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<MyProfile />} />
+          </Route>
+          {/* user  */}
+          <Route path="/dashboard" element={<Dashboard />}>
+            {dashboardUserRoutes.map(({ path, Component }, index) => (
+              <Route key={index} path={path} element={<Component />} />
+            ))}
+          </Route>
+          {/* admin  */}
+          <Route element={<RequiredAdmin />}>
+            <Route path="/dashboard" element={<Dashboard />}>
+              {dashboardAdminRoutes.map(({ path, Component }, index) => (
+                <Route key={index} path={path} element={<Component />} />
+              ))}
+            </Route>
+          </Route>
         </Route>
       </Routes>
     </Navbar>
