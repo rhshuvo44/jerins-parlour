@@ -6,6 +6,7 @@ import {
   FaLock,
   FaPlus,
   FaShoppingCart,
+  FaUserCircle,
   FaUserPlus,
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
@@ -21,22 +22,24 @@ const SideDashboard = () => {
       <div className="drawer-content flex flex-col items-center justify-center">
         {/* <!-- Page content here --> */}
         <Outlet />
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-primary drawer-button lg:hidden"
-        >
-          Open drawer
-        </label>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-[#E5E5E5] gap-y-2 pl-20 mt-16 text-base-content">
           {/* <!-- Sidebar content here --> */}
+          <li>
+            <NavLink
+              to="/dashboard/myProfile"
+              className=" capitalize hover:bg-transparent hover:text-primary"
+            >
+              <FaUserCircle /> My Profile
+            </NavLink>
+          </li>
           {!admin && (
             <>
               <li>
                 <NavLink
-                  to="/"
+                  to="/dashboard/booking"
                   className=" capitalize hover:bg-transparent hover:text-primary"
                 >
                   <FaShoppingCart /> Booking
@@ -44,7 +47,7 @@ const SideDashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/dashboard/bookingList"
                   className=" capitalize hover:bg-transparent hover:text-primary"
                 >
                   <FaLock /> Booking list
@@ -52,7 +55,7 @@ const SideDashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/dashboard/review"
                   className=" capitalize hover:bg-transparent hover:text-primary"
                 >
                   <FaComment /> review
@@ -72,7 +75,7 @@ const SideDashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/dashboard/addServices"
                   className=" capitalize hover:bg-transparent hover:text-primary"
                 >
                   <FaPlus /> Add service
@@ -80,7 +83,7 @@ const SideDashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/dashboard/addAdmin"
                   className=" capitalize hover:bg-transparent hover:text-primary"
                 >
                   <FaUserPlus /> Make Admin
@@ -88,7 +91,7 @@ const SideDashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/dashboard/manageService"
                   className=" capitalize hover:bg-transparent hover:text-primary"
                 >
                   <BiCommand /> Manage Services

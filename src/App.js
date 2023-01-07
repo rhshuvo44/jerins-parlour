@@ -7,7 +7,6 @@ import RequireAuth from "./authentication/RequireAuth";
 import RequiredAdmin from "./authentication/RequiredAdmin";
 import Navbar from "./layout/Navbar";
 import Dashboard from "./pages/dashboard/Dashboard";
-import MyProfile from "./pages/dashboard/MyProfile";
 import { dashboardAdminRoutes } from "./routes/dashboardAdminRoutes";
 import { dashboardUserRoutes } from "./routes/dashboardUserRoutes";
 import { privateRoutes } from "./routes/privateRoutes";
@@ -28,11 +27,6 @@ function App() {
           ))}
 
           {/* dashboard  */}
-          {/* all user  */}
-
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route index element={<MyProfile />} />
-          </Route>
           {/* user  */}
           <Route path="/dashboard" element={<Dashboard />}>
             {dashboardUserRoutes.map(({ path, Component }, index) => (
