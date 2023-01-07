@@ -39,7 +39,7 @@ const Signup = () => {
     createUserWithEmailAndPassword(email, password);
   };
   return (
-    <div className="login w-2/4 mx-auto flex flex-col justify-center justify-items-center p-20">
+    <div className="login md:w-2/4 mx-auto flex flex-col justify-center justify-items-center md:p-20">
       <div className="card mt-20 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Create an account</h2>

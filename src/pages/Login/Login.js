@@ -39,10 +39,10 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
   return (
-    <div className="login flex justify-center justify-items-center p-20">
+    <div className="login flex justify-center justify-items-center md:p-20">
       <div className="card mt-20 bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
-          <img src={logo} alt="logo" className="rounded-xl w-40" />
+          <img src={logo} alt="logo" className="w-40" />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">Login</h2>
