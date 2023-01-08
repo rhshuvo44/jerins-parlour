@@ -1,11 +1,12 @@
 .primary-button {
   background: #f73e7b;
   border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 15px 30px;
   font-weight: 600;
   font-size: 14px;
   line-height: 9px;
+  cursor: pointer;
   letter-spacing: 0.396px;
   color: #fff;
   text-align: center;

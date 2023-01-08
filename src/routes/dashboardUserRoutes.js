@@ -1,7 +1,7 @@
-import Booking from "../pages/dashboard/Booking";
-import BookingList from "../pages/dashboard/BookingList";
-import MyProfile from "../pages/dashboard/MyProfile";
-import Review from "../pages/dashboard/Review";
+import MyProfile from "../pages/dashboard/all/MyProfile";
+import Booking from "../pages/dashboard/user/Booking";
+import BookingList from "../pages/dashboard/user/BookingList";
+import Review from "../pages/dashboard/user/Review";
 
 export const dashboardUserRoutes = [
   {

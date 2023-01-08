@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import bannerImg from "../../assets/images/beautiful-young-asian-woman-touching-her-clean-face-with-fresh-healthy-skin-isolated-white-wall-beauty-cosmetics-facial-treatment-concept 1.png";
-import PrimaryButton from "../shared/PrimaryButton";
 const Banner = () => {
   return (
     <div className="banner bg-[#E5E5E5]">
@@ -13,12 +11,9 @@ const Banner = () => {
             commodo ipsum duis laoreet maecenas. Feugiat{" "}
           </p>
           <div className="card-actions">
-            <PrimaryButton>
-              <label htmlFor="my-modal-6" className="btn">
-                Get an Appointment
-              </label>
-              <Link to="/modal">Get an Appointment</Link>
-            </PrimaryButton>
+            <label htmlFor="my-modal-6" className="primary-button">
+              Get an Appointment
+            </label>
           </div>
         </div>
         <figure className="md:w-1/2 h-1/2">
