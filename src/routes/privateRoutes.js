@@ -6,4 +6,5 @@ export const privateRoutes = [
     name: "dashboard",
     Component: Dashboard,
   },
+  
 ];
